@@ -49,7 +49,7 @@ jobs:
         key: tool_cache_${{ env.GALAXY_RELEASE }}
     - name: Setup cmvfs
       run: ./.scripts/setup_cvmfs.sh
-    - run: pip install https://github.com/galaxyproject/planemo/archive/master.zip
+    - run: pip install https://github.com/jmchilton/planemo/archive/rework_workflow_staging.zip
     - run: sed "s|/cvmfs/main.galaxyproject.org/shed_tools|$HOME/cvmfs/main/shed_tools\" tool_cache_data_dir=\"$HOME/tool_cache|g" ~/cvmfs/main/config/shed_tool_conf.xml > ~/shed_tool_conf.xml
     - run: sed "s|/cvmfs/data.galaxyproject.org|$HOME/cvmfs/data|g" ~/cvmfs/data/managed/location/tool_data_table_conf.xml > ~/tool_data_table_conf_managed.xml
     - run: sed "s|/cvmfs/data.galaxyproject.org|$HOME/cvmfs/data|g" ~/cvmfs/data/byhand/location/tool_data_table_conf.xml > ~/tool_data_table_conf_by_hand.xml
